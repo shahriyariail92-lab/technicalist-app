@@ -1,0 +1,152 @@
+/* ================= تنظیمات کلی ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
+html, body { max-width: 100vw; overflow-x: hidden !important; }
+body { background-color: #0F172A; color: white; padding-bottom: 80px; }
+
+/* افکت نور پس‌زمینه */
+.bg-glow {
+    position: fixed; top: -50px; left: -50px; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+}
+
+/* هدر */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: linear-gradient(180deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0) 100%); }
+.logo { font-size: 18px; font-weight: bold; letter-spacing: 1px; color: #fff; text-shadow: 0 0 10px rgba(59, 130, 246, 0.8); }
+.menu-icon { font-size: 20px; color: #94A3B8; }
+.container { padding: 15px; width: 100%; }
+
+/* کارت‌های شیشه‌ای */
+.glass-card { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 15px; margin-bottom: 20px; }
+
+/* منوی شبکه‌ای داشبورد */
+.grid-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; margin-bottom: 25px; }
+.grid-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
+.icon-box { width: 60px; height: 60px; border-radius: 16px; display: flex; justify-content: center; align-items: center; font-size: 24px; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s; }
+.grid-item:active .icon-box { transform: scale(0.9); }
+.grid-item span { font-size: 11px; color: #CBD5E1; text-align: center; }
+.blue { background: linear-gradient(135deg, #3B82F6, #1D4ED8); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+.green { background: linear-gradient(135deg, #10B981, #047857); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+.purple { background: linear-gradient(135deg, #8B5CF6, #5B21B6); box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
+.cyan { background: linear-gradient(135deg, #06B6D4, #0E7490); box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+
+/* لیگ تریدرها */
+.league-banner { display: flex; justify-content: space-between; align-items: center; border-right: 3px solid #F59E0B; }
+.league-text h3 { font-size: 14px; color: #FBBF24; }
+.league-text p { font-size: 11px; color: #94A3B8; margin-top: 4px; }
+.trophy-icon { font-size: 30px; color: #F59E0B; text-shadow: 0 0 10px rgba(245, 158, 11, 0.6); }
+
+/* نوار وضعیت */
+.status-bar { display: flex; justify-content: space-between; font-size: 12px; color: #94A3B8; padding: 10px; background: rgba(30, 41, 59, 0.3); border-radius: 10px; }
+
+/* مدیریت صفحات */
+.page { display: none; padding-bottom: 20px; }
+.page.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.section-title { font-size: 16px; margin-bottom: 15px; color: #E2E8F0; }
+
+/* صفحه ربات */
+.badge { padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; }
+.badge.offline { background: rgba(239,68,68,0.2); color: #EF4444; border: 1px solid #EF4444; }
+.badge.online { background: rgba(16,185,129,0.2); color: #10B981; border: 1px solid #10B981; animation: blink 1.5s infinite; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+.switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: #10B981; box-shadow: 0 0 10px rgba(16,185,129,0.5); }
+input:checked + .slider:before { transform: translateX(24px); }
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+.terminal { background-color: #000; color: #10B981; font-family: monospace, Courier, Tahoma; font-size: 11px; padding: 15px; border-radius: 10px; height: 150px; overflow-y: auto; border: 1px solid #334155; line-height: 1.6; direction: ltr; text-align: left; }
+
+/* صفحه هوش مصنوعی */
+.upload-box { border: 2px dashed #06B6D4; text-align: center; padding: 40px 20px; cursor: pointer; transition: 0.3s; }
+.upload-box:active { background: rgba(6, 182, 212, 0.1); }
+#ai-result { width: 100%; max-width: 100%; box-sizing: border-box; direction: rtl; text-align: right; overflow: hidden; }
+#ai-result-text { 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: pre-wrap; 
+    line-height: 2; 
+    text-align: justify; 
+    font-size: 13px;
+    color: #E2E8F0;
+}
+
+/* صفحه بازار */
+.market-tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+.tab-btn { flex: 1; padding: 10px; border: none; border-radius: 10px; background: rgba(30,41,59,0.5); color: #94A3B8; font-family: Tahoma; cursor: pointer; transition: 0.3s; }
+.tab-btn.active { background: #3B82F6; color: white; box-shadow: 0 0 15px rgba(59,130,246,0.4); }
+.crypto-list-container { display: flex; flex-direction: column; gap: 10px; }
+.crypto-row { display: flex; justify-content: space-between; align-items: center; background: rgba(30, 41, 59, 0.5); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; }
+.crypto-info { display: flex; align-items: center; gap: 12px; }
+.crypto-info img { width: 30px; height: 30px; }
+.crypto-name { font-weight: bold; font-size: 14px; }
+.crypto-symbol { font-size: 11px; color: #94A3B8; text-transform: uppercase; }
+.crypto-price { text-align: left; }
+.crypto-price div:first-child { font-weight: bold; font-size: 14px; }
+.pos { color: #10B981; font-size: 12px; }
+.neg { color: #EF4444; font-size: 12px; }
+
+/* روان‌شناسی */
+.emotion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.emotion-btn { background-color: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 12px 5px; border-radius: 10px; font-family: Tahoma; font-size: 12px; cursor: pointer; transition: 0.2s; }
+.emotion-btn:active { background-color: #A78BFA; color: #000; transform: scale(0.95); }
+.emotion-log-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
+
+/* ژورنال */
+.form-card { display: flex; flex-direction: column; gap: 10px; }
+.form-card input, .form-card select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15,23,42,0.6); color: white; font-family: Tahoma; outline: none; }
+.btn-primary { background: linear-gradient(90deg, #3B82F6, #2563EB); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; font-family: Tahoma; }
+
+/* نوار ناوبری پایین */
+.bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.05); z-index: 100; }
+.nav-btn { background: none; border: none; color: #64748B; display: flex; flex-direction: column; align-items: center; gap: 5px; font-family: Tahoma; font-size: 11px; cursor: pointer; transition: 0.3s; }
+.nav-btn i { font-size: 20px; }
+.nav-btn.active { color: #3B82F6; text-shadow: 0 0 10px rgba(59,130,246,0.6); }
+
+/* چارت */
+iframe#tv-chart { width: 100%; max-width: 100vw; display: block; }
+.chart-container canvas { max-width: 100%; max-height: 100%; }
+/* ================= استایل‌های ارتقای بازار ================= */
+.search-box input::placeholder { color: #64748B; }
+
+.filter-btn {
+    background: rgba(30,41,59,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: #94A3B8;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: Tahoma;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.filter-btn.active {
+    background: #3B82F6;
+    color: white;
+    border-color: #3B82F6;
+    box-shadow: 0 0 10px rgba(59,130,246,0.3);
+}
+
+/* کارت‌های جدید ارز */
+.crypto-card-new {
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+.crypto-card-new:active { transform: scale(0.98); }
+
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.card-info { display: flex; align-items: center; gap: 12px; }
+.card-stats { font-size: 11px; color: #94A3B8; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+.sparkline-container { width: 100px; height: 40px; }
