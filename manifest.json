@@ -1,4 +1,5 @@
 {
+  "id": "com.technicalist.app",
   "name": "Technicalist Pro",
   "short_name": "Technicalist",
   "description": "دستیار حرفه‌ای معامله‌گری و تحلیل بازار ارزهای دیجیتال",
@@ -11,12 +12,22 @@
     {
       "src": "icon.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ]
 }
